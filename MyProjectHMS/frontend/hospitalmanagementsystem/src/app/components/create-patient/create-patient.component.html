@@ -1,0 +1,93 @@
+
+   
+   <nav class="navbar navbar-expand-sm fixed-top bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="mainname">People Care Hospital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        
+        <ul class="navbar-nav">
+          <li class="nav-link"><a class="dropdown-item" routerLink="/docdash" style="color: rgb(25, 25, 25);">Back</a></li>        </ul>
+      </div>
+    </div>
+  </nav>
+
+   <div class="container">
+    <br><br><br><br>
+    <h2>Add New Patient</h2>
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>ID</label>
+        <input type="number" class="form-control" formControlName="id" placeholder="Enter ID">
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+        <div *ngIf="formControls['name'].invalid && (formControls['name'].dirty || formControls['name'].touched)" class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" formControlName="age" placeholder="Enter Age">
+        <div *ngIf="formControls['age'].invalid && (formControls['age'].dirty || formControls['age'].touched)" class="alert alert-danger">
+          Age is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Blood Type</label>
+        <input type="text" class="form-control" formControlName="blood" placeholder="Enter Blood Type">
+        <div *ngIf="formControls['blood'].invalid && (formControls['blood'].dirty || formControls['blood'].touched)" class="alert alert-danger">
+          Blood Type is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Diagnosis & Prescription</label>
+        <input type="text" class="form-control" formControlName="prescription" placeholder="Enter Prescription">
+        <div *ngIf="formControls['prescription'].invalid && (formControls['prescription'].dirty || formControls['prescription'].touched)" class="alert alert-danger">
+          Prescription is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Dosage</label>
+        <input type="text" class="form-control" formControlName="dose" placeholder="Enter Dosage">
+        <div *ngIf="formControls['dose'].invalid && (formControls['dose'].dirty || formControls['dose'].touched)" class="alert alert-danger">
+          Dosage is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Fees</label>
+        <input type="text" class="form-control" formControlName="fees" placeholder="Enter Fees">
+        <div *ngIf="formControls['fees'].invalid && (formControls['fees'].dirty || formControls['fees'].touched)" class="alert alert-danger">
+          Fees is required
+        </div>
+      </div>
+      <br>
+  
+      <div class="form-group">
+        <label>Urgency</label>
+        <input type="text" class="form-control" formControlName="urgency" placeholder="Urgency">
+        <div *ngIf="formControls['urgency'].invalid && (formControls['urgency'].dirty || formControls['urgency'].touched)" class="alert alert-danger">
+          Urgency is required
+        </div>
+      </div>
+      <br>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid">Submit</button>
+    </form>
+  </div>
+  

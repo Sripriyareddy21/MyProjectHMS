@@ -1,0 +1,48 @@
+
+    <nav class="navbar navbar-expand-sm fixed-top bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" id="mainname">People Care Hospital</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
+          <ul class="navbar-nav">
+            <li class="nav-link"><a class="dropdown-item" routerLink="/medicinelist" style="color: rgb(25, 25, 25);">Back</a></li>        </ul>
+        </div>
+      </div>
+    </nav> 
+
+    <div class="container">
+      <br><br><br>
+      <h2 style="color: rgb(25, 25, 25); font-size: 30px">Update Medicine</h2>
+      <form [formGroup]="medicineForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>ID</label>
+          <input type="number" class="form-control" formControlName="id" placeholder="Enter ID">
+          <div *ngIf="formControls['id'].invalid && (formControls['id'].dirty || formControls['id'].touched)" class="alert alert-danger">
+            <div *ngIf="formControls['id'].errors?.['required']">ID is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Drug Name</label>
+          <input type="text" class="form-control" formControlName="drugName" placeholder="Enter Drug Name">
+          <div *ngIf="formControls['drugName'].invalid && (formControls['drugName'].dirty || formControls['drugName'].touched)" class="alert alert-danger">
+            <div *ngIf="formControls['drugName'].errors?.['required']">Drug Name is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Stock</label>
+          <input type="text" class="form-control" formControlName="stock" placeholder="Enter Stock">
+          <div *ngIf="formControls['stock'].invalid && (formControls['stock'].dirty || formControls['stock'].touched)" class="alert alert-danger">
+            <div *ngIf="formControls['stock'].errors?.['required']">Stock is required</div>
+          </div>
+        </div>
+        
+        <br>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+    
